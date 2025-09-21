@@ -1,0 +1,16 @@
+images {
+  image: "/assets/images/background.png"
+}
+images {
+  image: "/assets/images/logo.png"
+}
+images {
+  image: "/builtins/graphics/particle_blob.png"
+}
+images {
+  image: "/assets/images/caticorn.png"
+}
+images {
+  image: "/assets/images/white_bg_x1280_720.png"
+}
+extrude_borders: 2

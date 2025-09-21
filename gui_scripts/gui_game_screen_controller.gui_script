@@ -1,0 +1,40 @@
+local druid = require("druid.druid")
+
+function init(self)
+	self.druid = druid.new(self)
+	self.is_effect_on = false
+	self.on_button_text = "Turn [On]\nEffect"
+	self.off_button_text = "Turn [Off]\nEffect"
+	self.current_button_text = self.on_button_text
+
+	self.effect_button_text_node = gui.get_node("effect_button_text")
+	gui.set_text(self.effect_button_text_node, self.current_button_text)
+
+	self.effect_button = self.druid:new_button("effect_button", function()
+		self.is_effect_on = not self.is_effect_on
+		self.current_button_text = self.is_effect_on and self.off_button_text or self.on_button_text
+		gui.set_text(self.effect_button_text_node, self.current_button_text)
+
+		if self.is_effect_on then
+			msg.post("projector_spotlight", "activate")
+		else
+			msg.post("projector_spotlight", "deactivate")
+		end
+	end)
+end
+
+function update(self, dt)
+	self.druid:update(dt)
+end
+
+function on_message(self, message_id, message, sender)
+	self.druid:on_message(message_id, message, sender)
+end
+
+function on_input(self, action_id, action)
+	self.druid:on_input(action_id, action)
+end
+
+function final(self)
+	self.druid:final()
+end

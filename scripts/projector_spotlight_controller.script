@@ -1,0 +1,36 @@
+function init(self)
+	msg.post("#sprite", "disable")
+	self.spotlight_position_a = go.get_position("caticorn")
+	self.spotlight_position_b = go.get_position("logo_obj")
+end
+
+local function pack_colour(r, g, b)
+  return r * 4 + g * 2 + b
+end
+
+function update(self, dt)
+	local lights_table = {
+		vmath.vector4(self.spotlight_position_a.x, self.spotlight_position_a.y, 
+		pack_colour(1, 1, 1), 110),
+		vmath.vector4(self.spotlight_position_b.x, self.spotlight_position_b.y, 
+		pack_colour(1, 1, 0), 70)
+	}
+
+	local projector_spotlight_sprite_id = "#sprite"
+	go.set(projector_spotlight_sprite_id, "lights", lights_table)
+	local number_of_lights = #lights_table
+	go.set(projector_spotlight_sprite_id, "nLights", vmath.vector4(number_of_lights, 0, 0, 0))
+	go.set(projector_spotlight_sprite_id, "transparency", vmath.vector4(1, 0, 0, 0))
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("activate") then
+		msg.post("#sprite", "enable")
+		self.active = true
+	else
+		msg.post("#sprite", "disable")
+		self.active = false
+		local projector_spotlight_sprite_id = "#sprite"
+		go.set(projector_spotlight_sprite_id, "transparency", vmath.vector4(1, 0, 0, 0))
+	end
+end
