@@ -19,7 +19,7 @@ This `Defold` game project represents nice and commonly used visual effect of hi
 🎮 **[Play Demo Here](https://zugzug90.github.io/defold-projector-spotlight-effect/)**
 
 ## How to use
-1. Take all assets from folders `materials`, `shaders` into your project
+1. Take all assets from folders `assets/materials`, `assets/shaders` into your project. You might also need at least 1 full white texture image (see `assets/images/white_bg_x1280_720.png`) of the desired size (usually it just matches configured screen size)
 2. Create game object, add `sprite` component to it
 3. For the added `sprite` component assign a material named `projector_spotlight_material.material`
 4. Tweak the size of the texture image (`white_bg_x1280_720.png`) if needed to fit your game needs - currently it is just white image matching the project Display Settings (1280x720)
