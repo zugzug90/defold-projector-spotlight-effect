@@ -10,11 +10,13 @@
 ## Description:
 This `Defold` game project represents nice and commonly used visual effect of hightliting zones of interest for the players - widely used in casual, hybrid casual mobile games when onboarding the player in first tutorial steps.
 
-✅ Compatible with Defold `1.10.4`
+| Compatibility | Version  |
+|---------------|----------|
+| ✅ Defold     | `1.10.4` |
 
 ![Demo GIF](doc/img/spotlight_effect.gif)
 
-🎮 **[Play Demo Here](https://zugzug90.github.io/web-mobile-gestures-starter/)**
+🎮 **[Play Demo Here](https://zugzug90.github.io/defold-projector-spotlight-effect/)**
 
 Thanks to the Telegram buddy @brace_r for the fragment and vertex shader programs as a starter points.
 
